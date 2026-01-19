@@ -1,8 +1,16 @@
 "use client";
 
-import HeadphoneScroll from '@/components/HeadphoneScroll';
-import FeaturesTestimonials from '@/components/FeaturesTestimonials';
-import ContactSection from '@/components/ContactSection';
+import dynamic from 'next/dynamic';
+
+const HeadphoneScroll = dynamic(() => import('@/components/HeadphoneScroll'), {
+  ssr: false,
+});
+const FeaturesTestimonials = dynamic(() => import('@/components/FeaturesTestimonials'), {
+  ssr: false,
+});
+const ContactSection = dynamic(() => import('@/components/ContactSection'), {
+  ssr: false,
+});
 import { motion } from 'framer-motion';
 
 export default function Home() {

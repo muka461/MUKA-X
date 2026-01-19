@@ -99,17 +99,22 @@ export default function HeadphoneScroll() {
     });
 
     const handleResize = () => {
+      if (typeof window === 'undefined') return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       render(smoothFrame.get());
     }
 
-    window.addEventListener('resize', handleResize);
-    handleResize();
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', handleResize);
+      handleResize();
+    }
 
     return () => {
       unsubscribe();
-      window.removeEventListener('resize', handleResize);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', handleResize);
+      }
     }
   }, [isLoaded, smoothFrame, images]);
 

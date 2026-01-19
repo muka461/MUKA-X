@@ -19,7 +19,9 @@ export default function FeaturesTestimonials() {
     };
 
     const scrollToHome = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (typeof window !== 'undefined') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     };
 
     return (
@@ -59,7 +61,8 @@ export default function FeaturesTestimonials() {
             <div id="features-section" style={{ maxWidth: '1400px', margin: '0 auto', padding: '80px 48px' }}>
 
                 {/* Upper Section: Product Image (Left) + Features Row (Right) */}
-                <div style={{ display: 'grid', gridTemplateColumns: window.innerWidth >= 1024 ? '45% 55%' : '1fr', gap: '64px', marginBottom: '120px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '64px', marginBottom: '120px' }}>
+                    {/* Media queries or conditional classes should handle responsive grid, but for raw styles we use a safer default or effect */}
 
                     {/* Left: Professional Product Rendering */}
                     <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '500px' }}>
@@ -169,7 +172,7 @@ export default function FeaturesTestimonials() {
                 </div>
 
                 {/* Lower Section: Testimonials (Left) + Secondary Image (Center) + CTA (Right) */}
-                <div style={{ display: 'grid', gridTemplateColumns: window.innerWidth >= 768 ? '1fr 1fr 1fr' : '1fr', gap: '48px', alignItems: 'end', paddingTop: '60px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '48px', alignItems: 'end', paddingTop: '60px' }}>
 
                     {/* Left: Testimonials */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
